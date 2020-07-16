@@ -6,16 +6,18 @@ use Illuminate\Http\Request;
 
 
 use App\Article;
+use App\Http\Resources\Article as ArticleResource;
+use App\Http\Resources\ArticleCollection;
 
 class ArticleController extends Controller
 {
     public function index()
     {
-        return Article::all();
+        return ArticleResource::collection(Article::paginate(25));
     }
     public function show(Article $article)
     {
-        return $article;
+        return response()->json(new ArticleResource($article),200);
     }
     public function store(Request $request)
     {
