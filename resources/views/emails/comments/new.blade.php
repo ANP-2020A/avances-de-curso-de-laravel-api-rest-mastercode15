@@ -5,7 +5,7 @@
 
     {{$comment->text}}
 
-    ![Imagen del Artículo]({{asset('storage/' . $comment->article->image)}} "Imagen")
+    ![Imagen del Artículo]({{asset('storage/'.$comment->article->image)}} "Imagen")
 
     @component('mail::button', ['url' => URL::to('/')])
         Ver comentario
